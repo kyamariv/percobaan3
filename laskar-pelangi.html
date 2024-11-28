@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laskar Pelangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(26, 88, 164, 0.2) 100%), #041185;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: transparent;
+      }
+
+      .nav-links {
+        position: absolute;
+        right: 0;
+        top: 40px;
+        display: flex;
+        right: 60px;
+        gap: 50px;
+        align-items: end;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 0px 3px 4px #0000006c;
+      }
+    
+      .nav-links a.active {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .nav-links a.active {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+      }
+
+
+      .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+      }
+
+
+      .nav-links a.active {
+        filter: brightness(2);
+      }
+
+
+      .nav-links a.active:hover {
+        filter: brightness(1);
+        color: #cedbff;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 50px auto;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .book-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .book-cover {
+        width: 334px;
+        height: 501px;
+        border-radius: 15px;
+        object-fit: cover;
+      }
+
+      .details {
+        margin-top: 20px;
+        text-align: left;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5em;
+        line-height: 1.5;
+      }
+
+      .text-content {
+        flex: 1;
+        margin-left: 1.7em !important;
+      }
+
+      .intro {
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 30px;
+        font-style: italic;
+        font-size: 1.2em;
+        font-weight: 100;
+      }
+
+      .description {
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 30px;
+        font-size: 1.5em;
+        line-height: 1.5;
+      }
+
+      .cta {
+        margin: 10px auto;
+        padding: 10px 30px;
+        background-color: #ff7e5f;
+        border-radius: 20px;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.2em;
+        text-decoration: none;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        display: inline-block;
+      }
+
+      h1{
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        font-size: 4em;
+        text-shadow: 0px 3px 4px #0000006c;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="index.html#tentang-kita" class="active">Tentang Kita</a>
+        <a href="bacaan.html" class="active">Bacaan</a>
+        <a href="menurutmu.html" class="active">Kata Mereka</a>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="book-section"> <!--(di bawah ini) ganti bagian link image, alt, penulis, tahun terbit, dan genre; JANGAN SAMPE BAGIAN CLASS KEGANTI; jangan lupa br buat enter new line -->
+        <img src="https://image-resource.creatie.ai/143469832034610/143469832034612/2d5db901a02a98e191d3c79c2b0d1181.png" alt="Laskar Pelangi Cover" class="book-cover" />
+        <div class="details">
+          Penulis: Andrea Hirata <br />
+          Tahun Terbit: 2005 <br />
+          Genre: Drama
+        </div>
+      </div>
+
+      <!-- NOTE: GANTI BAGIAN PUTIH AJA KECUALI IMAGE DAN ALT DAN CLASS JANGAN SAMPE KEGANTI! -->
+
+      <div class="text-content">
+
+        <p class="intro">Tak kenal maka tak sayang...<br>Yuk, kenalan dikit sama buku yang akan menemani kamu!</p>
+
+        <h1>Laskar Pelangi</h1><!-- ini untuk judul buku -->
+
+        <div class="description"> <!-- bagian di bawah ini ganti jadi deskripsi buku -->
+          Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005.
+          Novel ini bercerita tentang kehidupan 10 anak dari keluarga miskin yang bersekolah di sebuah sekolah Muhammadiyah di Pulau Belitung yang penuh dengan keterbatasan.
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

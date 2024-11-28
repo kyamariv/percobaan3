@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cerita Kita</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+
+    /*style keseluruhan umum*/
+    body {
+        background-color: #020B5A;
+        background-size: 0%;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0px;
+        border: 0px;
+        font-size: clamp(14px, 2vw, 18px);
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: transparent;
+        position: relative;
+    }
+
+    .section-atas{ 
+      background-image: url("images/BackgroundHeader.png");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0px;
+    }
+    
+    .section-tengah{
+      background: linear-gradient(to bottom, #041185, #041185, #041185, #041185, #041185, #82455E, #FF7936);
+      flex-direction: column;
+      margin: 0px;
+    }
+
+    .section-bawah{
+      font-size: 100%;
+      border: 0;
+      font-family: 'Poppins', sans-serif;
+      vertical-align: baseline;
+      background: linear-gradient(170deg,#FF7936, #FF9D6C, #664561, #020B5A, #020B5A, #02073b, #02073b);
+      margin: 0px;
+    }
+
+
+    .italic {
+        font-style: italic;
+        margin-bottom: -10px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        margin-top: 10px;
+        margin-right: 20px;
+        align-self: flex-start;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 0px 3px 4px #0000006c;
+        margin-top: 10px;
+        margin-right: 20px;
+        align-self: flex-start;
+    }
+    
+    
+    .nav-links a.active {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+    }
+
+
+    .nav-links a.active {
+        filter: brightness(2);
+    }
+
+
+    .nav-links a.active:hover {
+        filter: brightness(1);
+        color: #cedbff;
+    }
+
+
+    .section-button {
+        background-color: transparent;
+        margin-top: 5px;
+        margin-left: 4%;
+        display: inline-block;
+        height: auto;
+    }
+
+
+
+    .book-slider {
+        position: relative;
+        display: flex;
+        overflow-x: scroll;
+        padding: 20px;
+        margin-left: 4em;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+
+    .book-slider .book-container { 
+        display: flex;
+        gap: 10px;
+    }
+
+
+    .book-slider img {
+        width: 15vw;
+        height: auto;
+        border-radius: 25px;
+        cursor: pointer;
+        scroll-snap-align: start;  
+    }
+    
+
+    .quote-section {
+      background-color: #ffffff;
+      padding: 70px;
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #1a009f;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 0px;
+    }
+
+
+    .genre-buttons {
+      background-color: transparent;
+      padding: 75px;
+      display: flex;
+      justify-content: center;
+      gap: 75px;
+      margin-bottom: 20px;
+    }
+
+
+    .genre-buttons button {
+      background-color: #ff6632;
+      color: white;
+      padding: 30px 60px;
+      border: none;
+      border-radius: 70px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2em;
+      text-shadow: 0px 3px 4px #0000006c;
+    }
+
+
+    .tentang-kita {
+      color: #ffffff;
+      margin-top: 70px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 1px 3px 4px #00000086;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+
+
+    .tentang-kita img {
+      margin-top: 5px;
+      width: 260px; 
+      height: 350px;
+      border-radius: 5px;
+    }
+    
+    .team-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 50px auto;
+      max-width: 80%;
+    }
+    
+    .team-member {
+      position: relative;
+      margin: 0 30px;
+      text-align: center;
+      overflow: visible; 
+      transition: transform 0.3s ease;
+      width: 200px;
+      height: auto;
+    }
+    .team-member img {
+      width: 15em;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .team-member:hover img {
+      transform: scale(1.1);
+    }
+
+    .member-name {
+      margin-top: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+      z-index: 2;
+      position: relative;
+    }
+
+    .member-role {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.4em;
+      text-align: center;
+      padding: 5px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    .team-member:hover .member-role {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .alasan-ceritakita{
+        margin-top: 15em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent; 
+      border: none; 
+      z-index: 1000; 
+    }
+
+    .scroll-top button {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .scroll-top img {
+      width: 3em;
+      height: auto;
+      cursor: pointer;
+    }
+
+    
+
+    @media (max-width: 768px) {
+        header img {
+            width: 50%;
+        }
+
+        .book-slider img {
+            width: 20vw; 
+        }
+
+        .nav-links {
+            flex-direction: column; 
+            gap: 10px;
+        }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- header -->
+  <div class="section-atas" id="section-atas">
+    
+    <header>
+        <img src="images\JudulCeritaKita.png" style="width: 17em; height: auto;">
+        <nav class="nav-links">
+            <a href="#section-atas" class="active">Beranda</a>
+            <a href="#tentang-kita" class="active">Tentang Kita</a>
+            <a href="bacaan.html" class="active">Bacaan</a>
+            <a href="menurutmu.html" class="active">Kata Mereka</a>
+        </nav>
+    </header>
+    
+    <!-- yang terbitan tahun ini -->
+    <div class="section-button">
+        <a href="#koleksi-buku"><img src="Images\TerbitanTahunIni.png" alt="Button Terbitan Tahun Ini" style="width: 17em; height: auto;"></a>
+    </div>
+    
+    <!-- slider buku 1 -->
+    <div class="book-slider">
+      <div class="book-container" id="popular-slider">
+            <a href="book1.html"><img src="images/Buku-TheFury" alt="Book 1"></a>
+            <a href="book2.html"><img src="Images/Buku-ComeNGetIt" alt="Book 2"></a>
+            <a href="book3.html"><img src="Images\Buku-MiddleofTheNight" alt="Book 3"></a>
+            <a href="book4.html"><img src="Images\Buku-SapiensGrafisVol2.jpg" alt="Book 4"></a>
+            <a href="book5.html"><img src="Images\Buku-LaughsLast" alt="Book 5"></a>
+            <a href="book6.html"><img src="Images\Buku-TheLifeImpossible" alt="Book 6"></a>
+            <a href="book7.html"><img src="Images\Buku-Daydream" alt="Book 7"></a>
+            <a href="book8.html"><img src="Images\Buku-TheLastMurderAtTheEnd" alt="Book 8"></a>
+            <a href="book9.html"><img src="Images\Buku-ThingsLeftBehind.jpg" alt="Book 9"></a>
+            <a href="book10.html"><img src="Images\Buku-IllFatedFortune.jpg" alt="Book 10"></a>
+            <a href="book11.html"><img src="Images\Buku-VillageintheDark.jpg" alt="Book 11"></a>
+            <a href="book12.html"><img src="Images\Buku-LukaCita.jpg" alt="Book 12"></a>
+            <a href="book13.html"><img src="Images\Buku-TheWrongSister.jpg" alt="Book 13"></a>
+            <a href="book14.html"><img src="Images\Buku-DontLookLeft.jpg" alt="Book 14"></a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- quote -->
+  <div class="quote-section" onclick="nextQuote()">
+    <span id="quote-text">“Pegang tanganku, tapi jangan terlalu erat, karena aku ingin seiring dan bukan digiring.“ — Filosofi Kopi, Dee Lestari.</span>
+  </div>
+  
+
+  <div class="section-tengah">
+
+    <!-- paling disukai -->
+    <div class="section-button">
+        <br>
+        <a href="#koleksi-buku"><img src="Images\PalingDisukai.png" alt="Button Paling Disukai" style="width: 17em; height: auto;"></a>
+    </div>
+    <!-- slider buku 2 -->
+    <div class="book-slider">
+      <div class="book-container" id="liked-slider">
+        <a href="book1.html"><img src="Images\Buku-TheFury" alt="Book 1"/></a>
+        <a href="book2.html"><img src="Images\Buku-LautBercerita.jpg" alt="Book 2"/></a>
+        <a href="book3.html"><img src="Images\Buku-TheHobbit.jpg" alt="Book 3"></a>
+        <a href="book4.html"><img src="Images\Buku-SapiensGrafisVol2.jpg" alt="Book 4"></a>
+        <a href="book5.html"><img src="Images\Buku-TheHouseofMirth.jpg" alt="Book 5"></a>
+        <a href="book6.html"><img src="Images\Buku-TheSunAlsoRises.jpg" alt="Book 6"></a>
+        <a href="book7.html"><img src="Images\Buku-Bedebah.jpg" alt="Book 7"></a>
+        <a href="book8.html"><img src="Images\Buku-PerahuKertas.jpg" alt="Book 8"></a>
+        <a href="book9.html"><img src="Images\Buku-LelakiHarimau.jpg" alt="Book 9"></a>
+        <a href="book10.html"><img src="Images\BukuHujan.jpg" alt="Book 10"></a>
+        <a href="book11.html"><img src="Images\Buku-WingsOfFire.jpg" alt="Book 11"></a>
+        <a href="book12.html"><img src="Images\Buku-FilosofiTeras.jpg" alt="Book 12"></a>
+        <a href="book13.html"><img src="Images\Buku-TLOTRTheTwoTowers.jpg" alt="Book 13"></a>
+        <a href="book14.html"><img src="Images\Buku-TLOTRTheFellowship.jpg" alt="Book 14"></a>
+      </div>
+    </div>
+  
+  
+    <!-- genre -->
+    <div class="genre-buttons">
+      <a href="action.html"><button>Action</button></a>
+      <a href="romance.html"><button>Romansa</button></a>
+      <a href="drama.html"><button>Drama</button></a>
+      <a href="komedi.html"><button>Komedi</button></a>
+    </div>
+  
+  
+    <!-- radar rilis? -->
+    <div class="section-button">
+        <a href="#koleksi-buku"><img src="Images\RadarRilis.png" alt="Radar Rilis" style="width: 30em; height: auto;"></a>
+    </div>
+  
+  
+    <!-- slider buku 3 -->
+    <div class="book-slider">
+      <div class="book-container" id="popular-slider">
+        <a href="book8.html"><img src="Images\Buku-TheLastMurderAtTheEnd" alt="Book 8"></a>
+        <a href="book9.html"><img src="Images\Buku-ThingsLeftBehind.jpg" alt="Book 9"></a>
+        <a href="book10.html"><img src="Images\Buku-IllFatedFortune.jpg" alt="Book 10"></a>
+        <a href="book11.html"><img src="Images\Buku-VillageintheDark.jpg" alt="Book 11"></a>
+        <a href="book12.html"><img src="Images\Buku-LukaCita.jpg" alt="Book 12"></a>
+        <a href="book13.html"><img src="Images\Buku-TheWrongSister.jpg" alt="Book 13"></a>
+        <a href="book14.html"><img src="Images\Buku-DontLookLeft.jpg" alt="Book 14"></a>
+        <a href="book1.html"><img src="Images\Buku-TheFury" alt="Book 1"></a>
+        <a href="book2.html"><img src="Images\Buku-ComeNGetIt" alt="Book 2"></a>
+        <a href="book3.html"><img src="Images\Buku-MiddleofTheNight" alt="Book 3"></a>
+        <a href="book4.html"><img src="Images\Buku-SapiensGrafisVol2.jpg" alt="Book 4"></a>
+        <a href="book5.html"><img src="Images\Buku-LaughsLast" alt="Book 5"></a>
+        <a href="book6.html"><img src="Images\Buku-TheLifeImpossible" alt="Book 6"></a>
+        <a href="book7.html"><img src="Images\Buku-Daydream" alt="Book 7"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-bawah">
+
+    <div class="break">
+        &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    </div>
+
+    <!-- tentang kita -->
+  <div class="tentang-kita" id="tentang-kita">
+    <br><br>
+    Tak kenal maka tak sayang,<br>
+    yuk kenalan sama sosok di balik Cerita Kita!<br>
+  </div>
+
+  <!-- foto tentang kita -->
+   <div class="team-container">
+    <div class="team-member">
+      <img src="Images/MARVEL.jpg" alt="Marvel"><br><br>
+      <span class="member-name">Marvel</span>
+    <div class="member-role">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graphic<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Designer</div>
+  </div>
+  <div class="team-member">
+      <img src="images/KEYO.PNG" alt="Kayla"><br><br>
+      <span class="member-name">Kayla</span>
+      <div class="member-role">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programmer</div>
+  </div>
+  <div class="team-member">
+    <img src="images/AXL.jpg" alt="Axl"><br><br>
+    <span class="member-name">Axl</span>
+    <div class="member-role">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Project<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manager</div>
+  </div>
+  <div class="team-member">
+    <img src="Images/SHERLON.jpg" alt="Sherlon"><br><br>
+    <span class="member-name">Sherlon</span>
+    <div class="member-role">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programmer</div>
+  </div>
+  <div class="team-member">
+    <img src="Images/ZIKRI.jpg" alt="Zikri"><br><br>
+    <span class="member-name">Zikri</span>
+    <div class="member-role">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programmer</div>
+  </div>
+  &nbsp;&nbsp;
+</div>
+
+
+  <div class="alasan-ceritakita">
+    <a href="#koleksi-buku"><img src="Images\AlasanCeritaKita1.png" alt="Alasan1" style="width: 35em; height: auto;"></a>
+    <br><br>
+    <a href="#koleksi-buku"><img src="Images\AlasanCeritaKita2.png" alt="Alasan2" style="width: 50em; height: auto;"></a>
+  </div>
+
+  <div class="break">
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <div class="scroll-top">
+    <a href="#section-atas">
+      <img src="images/ScrollUp.png" alt="ScrollUp">
+    </a>
+  </div>
+
+
+  </div>
+
+
+  <audio autoplay loop hidden>
+    <source src="audio.mp3" type="audio/mpeg">
+  </audio>
+  
+
+  <script>
+    const quotes = [
+      "“Suara-suara dari luar membuat kita tuli untuk mendengar suara-suara dari dalam.” — Maya, Ayu Utami.",
+      "“Hidup sungguh sangat sederhana. Yang hebat-hebat hanya tafsirannya.” —  Rumah Kaca, Pramoedya Ananta Toer.",
+      "“masa lalu selamanya tidak akan pernah menang karena ia selalu ada di belakang...”― Tere-liye"
+    ];
+    let currentQuote = 0;
+
+    function nextQuote() {
+      currentQuote = (currentQuote + 1) % quotes.length;
+      document.getElementById('quote-text').innerText = quotes[currentQuote];
+    }
+  </script>
+
+
+
+</body>
+</html>
